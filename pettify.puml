@@ -1,0 +1,101 @@
+@startuml
+set namespaceSeparator ::
+
+class "pettify::homepage.dart::HomePage" {
+  +_HomePageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "pettify::homepage.dart::HomePage"
+
+class "pettify::homepage.dart::_HomePageState" {
+  +List<Place> place
+  +String userName
+  +Widget build()
+  +Widget buildPlaceCategory()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "pettify::homepage.dart::_HomePageState"
+
+class "pettify::data.dart::Place" {
+  +String name
+  +String location
+  +String distance
+  +String condition
+  +String description
+  +Category category
+  +String imageUrl
+  +bool favorite
+  +bool newest
+}
+
+"pettify::data.dart::Place" o-- "pettify::data.dart::Category"
+
+class "pettify::data.dart::Category" {
+  +int index
+  {static} +List<Category> values
+  {static} +Category walking
+  {static} +Category grooming
+  {static} +Category doctor
+  {static} +Category shop
+}
+
+"pettify::data.dart::Category" o-- "pettify::data.dart::Category"
+"dart::core::Enum" <|-- "pettify::data.dart::Category"
+
+'class "pettify::firebase_options.dart::DefaultFirebaseOptions" {
+'  {static} +FirebaseOptions web
+'  {static} +FirebaseOptions android
+'  {static} +FirebaseOptions ios
+'  {static} +FirebaseOptions currentPlatform
+'}
+'
+'"pettify::firebase_options.dart::DefaultFirebaseOptions" o-- "firebase_core_platform_interface::firebase_core_platform_interface.dart::FirebaseOptions"
+
+class "pettify::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "pettify::main.dart::MyApp"
+
+class "pettify::category_list.dart::CategoryList" {
+  +Category category
+  +Widget build()
+}
+
+"pettify::category_list.dart::CategoryList" o-- "pettify::data.dart::Category"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "pettify::category_list.dart::CategoryList"
+
+class "pettify::widgets::map_widget.dart::MapRouter" {
+  +State<MapRouter> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "pettify::widgets::map_widget.dart::MapRouter"
+
+class "pettify::widgets::map_widget.dart::_PlacesMapWidgetState" {
+  {static} -CameraPosition _moscow
+  +void initState()
+  +Widget build()
+}
+
+"pettify::widgets::map_widget.dart::_PlacesMapWidgetState" o-- "google_maps_flutter_platform_interface::src::types::camera.dart::CameraPosition"
+"flutter::src::widgets::framework.dart::State" <|-- "pettify::widgets::map_widget.dart::_PlacesMapWidgetState"
+
+class "pettify::widgets::place_widget.dart::PlaceWidget" {
+  +Place place
+  +int? index
+  +Widget build()
+}
+
+"pettify::widgets::place_widget.dart::PlaceWidget" o-- "pettify::data.dart::Place"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "pettify::widgets::place_widget.dart::PlaceWidget"
+
+class "pettify::place_detail.dart::PlaceDetail" {
+  +Place place
+  +Widget build()
+}
+
+"pettify::place_detail.dart::PlaceDetail" o-- "pettify::data.dart::Place"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "pettify::place_detail.dart::PlaceDetail"
+
+
+@enduml

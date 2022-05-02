@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "551755239012",
+    "project_id": "petty-89e09",
+    "storage_bucket": "petty-89e09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551755239012:android:50bdef5aad047147f05971",
+        "android_client_info": {
+          "package_name": "com.example.pettify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551755239012-he0hkbupidj5susf3pq7av78hqglcur5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrRHZcK-BadSsGLKg-SlhfjH4a4AVIP4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551755239012-he0hkbupidj5susf3pq7av78hqglcur5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "551755239012-6j2ba8tkstsllpo2v0gstec0kjuvilpr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.petts"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
